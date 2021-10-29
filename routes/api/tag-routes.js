@@ -11,6 +11,14 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   // find a single tag by its `id`
   // be sure to include its associated Product data
+  router.get('/', async (req, res) => {
+    try {
+      const Data = await Location.findAll();
+      res.status(200).json(locationData);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  
 });
 
 router.post('/', (req, res) => {
